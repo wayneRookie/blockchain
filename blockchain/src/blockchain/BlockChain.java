@@ -22,6 +22,7 @@ public class BlockChain {
 		Block block = new Block(data, pre, 1);
 		dbUtil.writeToDatabase(block.getHash(), SerializeAndDeserialize.serializeToString(block), false);
 		dbUtil.writeToDatabase("current_hash", block.getHash(), true);// 用来不断更新当前区块链的最后一个区块的哈希值。
+		dbUtil.closeDB();
 	}
 
 	/*
